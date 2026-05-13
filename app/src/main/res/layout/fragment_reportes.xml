@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_secondary">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp" app:cardBackgroundColor="@color/bg_primary">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView style="@style/SectionLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" android:text="FILTROS"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Departamento" android:textSize="11sp"
+                    android:textColor="@color/text_secondary" android:layout_marginBottom="4dp"/>
+                <Spinner android:id="@+id/spinnerDept"
+                    android:layout_width="match_parent" android:layout_height="40dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Periodo" android:textSize="11sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
+                <Spinner android:id="@+id/spinnerPeriodo"
+                    android:layout_width="match_parent" android:layout_height="40dp"/>
+                <ProgressBar android:id="@+id/progressBar"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_gravity="center" android:visibility="gone" android:layout_marginTop="8dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnGenerar"
+                    style="@style/PrimaryButton"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:layout_marginTop="16dp" android:text="@string/btn_generate"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <LinearLayout android:id="@+id/reporteContent"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="10dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/primary_light">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp">
+                        <TextView android:id="@+id/tvPromedioGlobal"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0%" android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" android:textColor="@color/primary"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Promedio" android:textSize="10sp" android:textColor="@color/primary"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    app:cardCornerRadius="10dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/success_light">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp">
+                        <TextView android:id="@+id/tvTotalDias"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" android:textColor="@color/success"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Total dias" android:textSize="10sp" android:textColor="@color/success"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp" app:cardElevation="2dp" app:cardBackgroundColor="@color/bg_primary">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView style="@style/SectionLabel"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp" android:text="ASISTENCIA SEMANAL DE CATEDRATICOS (%)"/>
+                    <com.github.mikephil.charting.charts.BarChart android:id="@+id/barChart"
+                        android:layout_width="match_parent" android:layout_height="200dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnExportPdf"
+                    style="@style/SecondaryButton"
+                    android:layout_width="0dp" android:layout_height="44dp"
+                    android:layout_weight="1" android:layout_marginEnd="8dp"
+                    android:text="@string/btn_export_pdf"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnExportExcel"
+                    style="@style/SecondaryButton"
+                    android:layout_width="0dp" android:layout_height="44dp"
+                    android:layout_weight="1" android:text="@string/btn_export_excel"/>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp" app:cardElevation="2dp" app:cardBackgroundColor="@color/bg_primary">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView style="@style/SectionLabel"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp" android:text="CATEDRATICOS CON MAS AUSENCIAS"/>
+                    <LinearLayout android:id="@+id/llTopAusencias"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

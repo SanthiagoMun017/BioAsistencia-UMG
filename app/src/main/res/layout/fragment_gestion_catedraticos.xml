@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@color/bg_secondary">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBuscar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:boxCornerRadiusBottomEnd="8dp" app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp" app:boxCornerRadiusTopStart="8dp"
+            app:startIconDrawable="@android:drawable/ic_menu_search"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBuscar"
+                android:layout_width="match_parent" android:layout_height="44dp"
+                android:hint="Buscar catedratico..." android:textSize="13sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:id="@+id/tvConteo"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginStart="16dp" android:layout_marginTop="4dp"
+            android:textSize="11sp" android:textColor="@color/text_secondary"
+            app:layout_constraintTop_toBottomOf="@id/tilBuscar"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ProgressBar android:id="@+id/progressBar"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvConteo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView android:id="@+id/tvEmpty"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:padding="40dp"
+            android:text="No hay catedraticos registrados.\nToca + para agregar uno."
+            android:textSize="14sp" android:textColor="@color/text_hint"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvConteo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvCatedraticos"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:paddingHorizontal="12dp" android:paddingTop="6dp"
+            android:paddingBottom="80dp" android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/tvConteo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAgregar"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:contentDescription="Agregar catedratico"
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

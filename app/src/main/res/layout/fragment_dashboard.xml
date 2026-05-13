@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:id="@+id/tvGreeting"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="18sp" android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvDate"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:layout_marginBottom="16dp"
+                android:textSize="11sp" android:textColor="@color/text_secondary"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="20dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginEnd="6dp" app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp" app:cardBackgroundColor="@color/primary_light"
+                    app:strokeColor="@color/divider" app:strokeWidth="0.5dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp">
+                        <TextView android:id="@+id/tvTotalCats"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" android:textColor="@color/primary"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Total catedraticos" android:textSize="10sp" android:textColor="@color/primary"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp" app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp" app:cardBackgroundColor="@color/success_light"
+                    app:strokeColor="@color/divider" app:strokeWidth="0.5dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp">
+                        <TextView android:id="@+id/tvPresentes"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" android:textColor="@color/success"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Presentes hoy" android:textSize="10sp" android:textColor="@color/success"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginStart="6dp" app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp" app:cardBackgroundColor="@color/danger_light"
+                    app:strokeColor="@color/divider" app:strokeWidth="0.5dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="12dp">
+                        <TextView android:id="@+id/tvAusentes"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0" android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" android:textColor="@color/danger"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Ausentes hoy" android:textSize="10sp" android:textColor="@color/danger"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <TextView style="@style/SectionLabel"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="CATEDRATICOS POR DEPARTAMENTO"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnRegistrar"
+                    style="@style/PrimaryButton"
+                    android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Tomar asistencia" android:textSize="11sp"/>
+            </LinearLayout>
+            <ProgressBar android:id="@+id/progressBar"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center" android:visibility="gone"/>
+            <TextView android:id="@+id/tvEmpty"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center" android:padding="32dp"
+                android:text="No hay datos disponibles"
+                android:textSize="14sp" android:textColor="@color/text_hint"
+                android:visibility="gone"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvDepartamentos"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

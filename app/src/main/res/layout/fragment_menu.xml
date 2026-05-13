@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_secondary">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/bg_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <FrameLayout android:layout_width="56dp" android:layout_height="56dp"
+                    android:background="@drawable/circle_primary_light"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:id="@+id/tvInitialsUsuario"
+                        android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:gravity="center" android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium" android:textColor="@color/primary"/>
+                </FrameLayout>
+                <TextView android:id="@+id/tvNombreUsuario"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="15sp" android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary"/>
+                <TextView android:id="@+id/tvRol"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp" android:textSize="11sp"
+                    android:textColor="@color/text_secondary"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/bg_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvGestionCatedraticos"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:gravity="center_vertical" android:text="Gestión de Catedráticos"
+                    android:textSize="13sp" android:textColor="@color/text_primary"
+                    android:paddingHorizontal="16dp" android:clickable="true" android:focusable="true"/>
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/divider" android:layout_marginHorizontal="16dp"/>
+                <TextView android:id="@+id/tvAcerca"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:gravity="center_vertical" android:text="Acerca del sistema"
+                    android:textSize="13sp" android:textColor="@color/text_primary"
+                    android:paddingHorizontal="16dp" android:clickable="true" android:focusable="true"/>
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/divider" android:layout_marginHorizontal="16dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="48dp"
+                    android:gravity="center_vertical" android:text="Configurar servidor"
+                    android:textSize="13sp" android:textColor="@color/text_primary"
+                    android:paddingHorizontal="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/divider" android:layout_marginHorizontal="16dp"/>
+                <TextView android:id="@+id/tvLogout"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:gravity="center_vertical" android:text="@string/logout"
+                    android:textSize="13sp" android:textColor="@color/danger"
+                    android:paddingHorizontal="16dp" android:clickable="true" android:focusable="true"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:gravity="center"
+            android:text="BioAsistencia v1.0  |  VII Ciclo  |  Ing. Sistemas"
+            android:textSize="10sp" android:textColor="@color/text_hint"/>
+    </LinearLayout>
+</ScrollView>

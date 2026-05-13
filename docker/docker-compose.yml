@@ -1,0 +1,72 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: bioasistencia_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: bioasistencia
+      MYSQL_USER: biouser
+      MYSQL_PASSWORD: bio1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - bionet
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "biouser", "-pbio1234"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: bioasistencia_pma
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: biouser
+      PMA_PASSWORD: bio1234
+    ports:
+      - "8080:80"
+    networks:
+      - bionet
+
+  api:
+    image: php:8.2-cli
+    container_name: bioasistencia_api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    command: >
+      sh -c "docker-php-ext-install pdo pdo_mysql &&
+             php -S 0.0.0.0:8000 -t /app/public"
+    ports:
+      - "8000:8000"
+    networks:
+      - bionet
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: bioasistencia
+      DB_USERNAME: biouser
+      DB_PASSWORD: bio1234
+
+volumes:
+  db_data:
+
+networks:
+  bionet:
+    driver: bridge

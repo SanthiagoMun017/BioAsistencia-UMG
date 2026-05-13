@@ -1,0 +1,21 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Android build outputs
+app/build/
+**/build/
+
+# Docker volumes (no subir datos de BD)
+docker/data/
+
+# Archivos temporales
+*.tmp
+*.log

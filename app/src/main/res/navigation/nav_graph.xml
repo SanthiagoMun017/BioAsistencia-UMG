@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment android:id="@+id/dashboardFragment"
+        android:name="com.bioasistencia.ui.dashboard.DashboardFragment"
+        android:label="Dashboard" tools:layout="@layout/fragment_dashboard">
+        <action android:id="@+id/actionDashboardToHistorial"
+            app:destination="@id/historialFragment"
+            app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/actionDashboardToBiometric"
+            app:destination="@id/biometricFragment"
+            app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/historialFragment"
+        android:name="com.bioasistencia.ui.historial.HistorialFragment"
+        android:label="Historial" tools:layout="@layout/fragment_historial">
+        <argument android:name="idDepartamento" app:argType="integer" android:defaultValue="0"/>
+        <argument android:name="nombreDepartamento" app:argType="string" android:defaultValue="Todos"/>
+        <action android:id="@+id/actionHistorialToPerfil"
+            app:destination="@id/perfilFragment"
+            app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/biometricFragment"
+        android:name="com.bioasistencia.ui.biometric.BiometricFragment"
+        android:label="Biometrico" tools:layout="@layout/fragment_biometric"/>
+
+    <fragment android:id="@+id/reportesFragment"
+        android:name="com.bioasistencia.ui.reportes.ReportesFragment"
+        android:label="Reportes" tools:layout="@layout/fragment_reportes"/>
+
+    <fragment android:id="@+id/menuFragment"
+        android:name="com.bioasistencia.ui.menu.MenuFragment"
+        android:label="Menu" tools:layout="@layout/fragment_menu"/>
+
+    <fragment android:id="@+id/perfilFragment"
+        android:name="com.bioasistencia.ui.perfil.PerfilFragment"
+        android:label="Perfil" tools:layout="@layout/fragment_perfil">
+        <argument android:name="idCatedratico" app:argType="integer"/>
+
+    </fragment>
+    <fragment android:id="@+id/gestionCatedraticosFragment"
+        android:name="com.bioasistencia.ui.gestion.GestionCatedraticosFragment"
+        android:label="Gestion de Catedraticos"
+        tools:layout="@layout/fragment_gestion_catedraticos"/>
+</navigation>

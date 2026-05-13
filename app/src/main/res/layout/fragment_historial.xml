@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg_secondary">
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@color/bg_primary" android:scrollbars="none" android:elevation="2dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="48dp"
+            android:orientation="horizontal" android:paddingHorizontal="12dp" android:gravity="center_vertical">
+            <TextView android:id="@+id/btnFiltroTodos"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:layout_marginEnd="8dp" android:gravity="center"
+                android:paddingHorizontal="14dp" android:text="@string/filter_all"
+                android:textSize="11sp" android:fontFamily="sans-serif-medium"
+                android:background="@drawable/filter_btn_bg"
+                android:textColor="@drawable/filter_btn_text_color"
+                android:clickable="true" android:focusable="true"/>
+            <TextView android:id="@+id/btnFiltroPresentes"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:layout_marginEnd="8dp" android:gravity="center"
+                android:paddingHorizontal="14dp" android:text="@string/filter_present"
+                android:textSize="11sp" android:fontFamily="sans-serif-medium"
+                android:background="@drawable/filter_btn_bg"
+                android:textColor="@drawable/filter_btn_text_color"
+                android:clickable="true" android:focusable="true"/>
+            <TextView android:id="@+id/btnFiltroAusentes"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:layout_marginEnd="8dp" android:gravity="center"
+                android:paddingHorizontal="14dp" android:text="@string/filter_absent"
+                android:textSize="11sp" android:fontFamily="sans-serif-medium"
+                android:background="@drawable/filter_btn_bg"
+                android:textColor="@drawable/filter_btn_text_color"
+                android:clickable="true" android:focusable="true"/>
+            <TextView android:id="@+id/btnFiltroTardanza"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:gravity="center" android:paddingHorizontal="14dp"
+                android:text="@string/filter_late" android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
+                android:background="@drawable/filter_btn_bg"
+                android:textColor="@drawable/filter_btn_text_color"
+                android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp" android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        app:boxCornerRadiusBottomEnd="8dp" app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp" app:boxCornerRadiusTopStart="8dp"
+        app:startIconDrawable="@android:drawable/ic_menu_search">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etBuscar"
+            android:layout_width="match_parent" android:layout_height="42dp"
+            android:hint="@string/search_hint" android:textSize="13sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:paddingHorizontal="16dp" android:paddingVertical="6dp">
+        <TextView android:id="@+id/tvDeptHeader"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:textSize="11sp" android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tvFechaHeader"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textSize="10sp" android:textColor="@color/text_hint"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:paddingHorizontal="16dp" android:paddingBottom="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Presentes: " android:textSize="11sp" android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tvPresentes" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="0"
+            android:textSize="11sp" android:fontFamily="sans-serif-medium"
+            android:textColor="@color/success" android:layout_marginEnd="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Ausentes: " android:textSize="11sp" android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tvAusentes" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="0"
+            android:textSize="11sp" android:fontFamily="sans-serif-medium"
+            android:textColor="@color/danger" android:layout_marginEnd="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Tardanza: " android:textSize="11sp" android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tvTardanza" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="0"
+            android:textSize="11sp" android:fontFamily="sans-serif-medium"
+            android:textColor="@color/warning"/>
+    </LinearLayout>
+    <ProgressBar android:id="@+id/progressBar"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center" android:visibility="gone"/>
+    <TextView android:id="@+id/tvEmpty"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center" android:padding="40dp"
+        android:text="No hay registros para mostrar"
+        android:textSize="14sp" android:textColor="@color/text_hint" android:visibility="gone"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvAsistencias"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:paddingHorizontal="16dp"
+        android:paddingTop="4dp" android:clipToPadding="false"/>
+</LinearLayout>

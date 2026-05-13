@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_secondary">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@color/primary_light" android:padding="16dp"
+            android:orientation="vertical">
+            <TextView android:id="@+id/tvSesionInfo"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Sesion del dia" android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" android:textColor="@color/primary"/>
+            <TextView android:id="@+id/tvFechaInfo"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:textSize="11sp"
+                android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:id="@+id/tvProgress"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" android:text="0 / 0 catedraticos registrados"
+                android:textSize="12sp" android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"/>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent" android:layout_height="6dp"
+                android:layout_marginBottom="20dp"
+                app:trackCornerRadius="3dp" app:indicatorColor="@color/primary"
+                app:trackColor="@color/divider"/>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/bg_primary">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp" android:gravity="center">
+                    <FrameLayout android:layout_width="160dp" android:layout_height="160dp"
+                        android:layout_gravity="center" android:layout_marginBottom="16dp">
+                        <View android:id="@+id/ivFingerprintRing"
+                            android:layout_width="160dp" android:layout_height="160dp"
+                            android:background="@drawable/fingerprint_ring"/>
+                        <FrameLayout android:layout_width="110dp" android:layout_height="110dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/circle_primary_light">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:layout_gravity="center" android:text="HUELLA"
+                                android:textSize="13sp" android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/primary"/>
+                        </FrameLayout>
+                    </FrameLayout>
+                    <TextView android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/biometric_waiting"
+                        android:textSize="13sp" android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_secondary" android:gravity="center"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/biometric_instruction"
+                        android:textSize="11sp" android:textColor="@color/text_hint"
+                        android:gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/SectionLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" android:text="ULTIMOS REGISTROS"/>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/bg_primary">
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvRegistros"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" android:padding="4dp"/>
+            </androidx.cardview.widget.CardView>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnManual"
+                style="@style/SecondaryButton"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginBottom="10dp" android:text="@string/btn_manual"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnFinalizar"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="@string/btn_finalizar"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BioAsistencia</string>
+    <string name="app_subtitle">Control de Asistencia de Catedraticos</string>
+    <string name="hint_email">Correo electronico</string>
+    <string name="hint_password">Contrasena</string>
+    <string name="btn_login">Iniciar sesion</string>
+    <string name="btn_login_coord">Acceder como Coordinador</string>
+    <string name="forgot_password">Olvide mi contrasena</string>
+    <string name="biometric_waiting">Esperando que el catedratico coloque su dedo...</string>
+    <string name="biometric_instruction">El catedratico se identifica con su huella registrada en el sensor</string>
+    <string name="btn_manual">+ Registrar catedratico manualmente</string>
+    <string name="btn_finalizar">Finalizar sesion del dia</string>
+    <string name="filter_all">Todos</string>
+    <string name="filter_present">Presentes</string>
+    <string name="filter_absent">Ausentes</string>
+    <string name="filter_late">Tardanza</string>
+    <string name="search_hint">Buscar catedratico o departamento...</string>
+    <string name="status_present">Presente</string>
+    <string name="status_absent">Ausente</string>
+    <string name="status_late">Tardanza</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_historial">Historial</string>
+    <string name="nav_biometric">Biometrico</string>
+    <string name="nav_reports">Reportes</string>
+    <string name="nav_menu">Menu</string>
+    <string name="logout">Cerrar sesion</string>
+    <string name="btn_ver_historial">Ver historial completo</string>
+    <string name="btn_generate">Generar reporte</string>
+    <string name="btn_export_pdf">Exportar PDF</string>
+    <string name="btn_export_excel">Exportar Excel</string>
+</resources>
